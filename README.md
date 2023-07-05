@@ -55,6 +55,6 @@ You can visit this website down below for creating or for more information about
 
 
 ## Contribution
-- Created by: Nina Lor 7/2023
+- Created by: Nina Lor 07/2023
 - https://github.com/ninalor02
-- https://ninalor02.github.io/readme-generator/
+- https://ninalor02.github.io/generator-readme/
