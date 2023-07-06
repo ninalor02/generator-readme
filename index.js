@@ -81,9 +81,11 @@ inquirer
         'GNU LGPLv3',
         'GNU GPLv3',
         'GNU AGPLv3',
+        'BSD 2-Clause (simplified)',
         'BSD 3-Clause',
         'Mozilla Public License 2.0',
-        'Boost Software License 1.0'
+        'Boost Software License 1.0',
+        'none'
       ]
     },
     // testing for project
@@ -136,7 +138,7 @@ const writeFile = fileContent => {
      
       resolve({
         ok: true,
-        message: 'File created!'
+        message: 'File is created!'
       });
     });
   });
