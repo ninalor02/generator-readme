@@ -2,7 +2,9 @@
 challenge 9
 
 ![GitHub](https://img.shields.io/github/license/:ninalor/:generator-readme)
+![GitHub](https://img.shields.io/badge/text-Apache 2.0-blue?style=&logo=logo)
 
+http://www.apache.org/licenses/LICENSE-2.0
 
 https://img.shields.io/pypi/l/javascript
 

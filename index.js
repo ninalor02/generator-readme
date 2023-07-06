@@ -127,13 +127,13 @@ const promptUser = () => {
 const writeFile = fileContent => {
   return new Promise((resolve, reject) => {
     fs.writeFile('./README.md', fileContent, err => {
-      // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+     
       if (err) {
         reject(err);
-        // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
+        
         return;
       }
-      // if everything went well, resolve the Promise and send the successful data to the `.then()` method
+     
       resolve({
         ok: true,
         message: 'File created!'
@@ -141,18 +141,16 @@ const writeFile = fileContent => {
     });
   });
 };
-
-const fs = require('fs');
-
-function writeToFile(fileName, data) {}
-fs.writeFile('log.txt', process.argv[2], (err) =>
-   err ? console.error(err) : console.log('Success!')
- );
-
-function init() {}
-
-
-init();
-
+// not workin properly yet
+promptUser()
+.then(generate => {
+    return generateMarkdown(generate);
+})
+.then(fileContent => {
+    return writeFile(fileContent);
+})
+.catch(err => {
+    console.log(err);
+});
 
 
