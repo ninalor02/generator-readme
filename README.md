@@ -18,13 +18,12 @@ https://shields.io/
 * Usage
 * License
 * Tests
-* Website
 * Contribution
 * Questions
 
 ## Installation
-
-- npm install
+These are instructions detailing how to install the application.
+(npm install)
 
 ## Usage
 
@@ -33,10 +32,7 @@ https://shields.io/
 
 ## License
 
- This Repository is licensed under: 
-
-## Credits
-
+ This Repository is licensed under: Apache 2.0
 
 ## Badges
 * These are just examples that was created
@@ -54,11 +50,10 @@ You can visit this website down below for creating or for more information about
 
 
 ## How to Contribute
+These are guidelines for future contribution.
 
 ## Tests
-
-- To run tests, run the following: npm run test
-
+- These are the tests written for the application.
 
 ## Questions
 

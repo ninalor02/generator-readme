@@ -2,7 +2,6 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 
-
 // questions
 const questions = []
 inquirer
@@ -121,3 +120,18 @@ inquirer
     }
   ])
 
+  function init() {
+    return inquirer.prompt(questions);
+};
+
+// Function call to initialize app
+init()
+    .then(data => {
+        return generateMarkdown(data);
+    })
+    .then(generateMarkdown => {
+        return writeToFile('./dist/README.md', generateMarkdown);
+    })
+    .catch(err => {
+        console.log(err);
+    });
