@@ -4,7 +4,6 @@ const inquirer = require('inquirer');
 
 
 // questions
-
 const questions = []
 inquirer
   .prompt([
@@ -13,6 +12,7 @@ inquirer
       type: 'input',
       message: 'Enter your name?',
       name: 'username',
+      default: 'optional for full name',
       validate: githubInput => {
         if (githubInput) {
           return true;
@@ -53,7 +53,7 @@ inquirer
       }
     },
 
-    
+
     // installation
     {
       type: 'input',
@@ -120,39 +120,4 @@ inquirer
       }
     }
   ])
-
-// add function to prompt user inputs
-const promptUser = () => {
-  return inquirer.prompt(questions);
-}
-
-const writeFile = fileContent => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile('./README.md', fileContent, err => {
-     
-      if (err) {
-        reject(err);
-        
-        return;
-      }
-     
-      resolve({
-        ok: true,
-        message: 'File is created!'
-      });
-    });
-  });
-};
-// // not workin properly yet
-// promptUser()
-// .then(generate => {
-//     return generateMarkdown(generate);
-// })
-// .then(fileContent => {
-//     return writeFile(fileContent);
-// })
-// .catch(err => {
-//     console.log(err);
-// });
-
 

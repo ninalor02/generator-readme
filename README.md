@@ -1,13 +1,11 @@
-### readme-generator
-challenge 9
+# readme-generator
+### CHALLENGE 9
 
-![GitHub](https://img.shields.io/github/license/:ninalor/:generator-readme)
-![GitHub](https://img.shields.io/badge/text-Apache 2.0-blue?style=&logo=logo)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-https://img.shields.io/pypi/l/javascript
+https://shields.io/
 
 
 ## Description
@@ -41,9 +39,19 @@ https://img.shields.io/pypi/l/javascript
 
 
 ## Badges
+* These are just examples that was created
+
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+![Static Badge](https://img.shields.io/badge/Usage-Prompts-blue)
+
+![Static Badge](https://img.shields.io/badge/Usage-Commands-blue)
+
 You can visit this website down below for creating or for more information about badges.
 - https://shields.io/badges
+
 ## Features
+
 
 ## How to Contribute
 
