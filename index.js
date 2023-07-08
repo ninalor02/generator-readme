@@ -11,13 +11,13 @@ inquirer
     {
       //Github username
       type: 'input',
-      message: 'Enter your Github username?',
+      message: 'Enter your name?',
       name: 'username',
       validate: githubInput => {
         if (githubInput) {
           return true;
         } else {
-          console.log('please enter your github username!');
+          console.log('please enter your name!');
           return false;
         }
       }
@@ -26,13 +26,13 @@ inquirer
     {
       //Github Repository
       type: 'input',
-      message: 'Enter in your github repository name ?',
+      message: 'Enter in your github username ?',
       name: 'repository',
       validate: repository => {
         if (repository) {
           return true;
         } else {
-          console.log('please enter your github repository name!');
+          console.log('please enter your github username!');
           return false;
         }
       }
@@ -143,16 +143,16 @@ const writeFile = fileContent => {
     });
   });
 };
-// not workin properly yet
-promptUser()
-.then(generate => {
-    return generateMarkdown(generate);
-})
-.then(fileContent => {
-    return writeFile(fileContent);
-})
-.catch(err => {
-    console.log(err);
-});
+// // not workin properly yet
+// promptUser()
+// .then(generate => {
+//     return generateMarkdown(generate);
+// })
+// .then(fileContent => {
+//     return writeFile(fileContent);
+// })
+// .catch(err => {
+//     console.log(err);
+// });
 
 
