@@ -6,10 +6,10 @@ const inquirer = require('inquirer');
 const questions = []
 inquirer
   .prompt([
+    //Github username
     {
-      //Github username
       type: 'input',
-      message: 'Enter your name?',
+      message: 'Enter your name (Required)?',
       name: 'username',
       default: 'optional for full name',
       validate: githubInput => {
@@ -22,10 +22,10 @@ inquirer
       }
     },
 
+    //Github Repository
     {
-      //Github Repository
       type: 'input',
-      message: 'Enter in your github username ?',
+      message: 'Enter in your github username (Required)?',
       name: 'repository',
       validate: repository => {
         if (repository) {
@@ -37,10 +37,10 @@ inquirer
       }
     },
 
+    // Title of project
     {
-      // Title of project
       type: 'input',
-      message: 'What is the title of this project?:',
+      message: 'What is the title of this project? (Required):',
       name: 'Github',
       validate: challenge => {
         if (challenge) {
@@ -52,27 +52,26 @@ inquirer
       }
     },
 
-
     // installation
     {
       type: 'input',
       name: 'installation',
-      message: 'What command should be run to install dependencies?',
+      message: 'What command should be run to install dependencies (Required)?',
       default: 'npm install'
     },
+
     // usage
     {
       type: 'input',
       name: 'usage',
-      message: 'Enter your project instructions and examples'
+      message: 'Enter your project instructions and examples (Required)'
     },
 
     // license
-
     {
       type: 'list',
       name: 'license',
-      message: 'What license should your project have?',
+      message: 'What license should your project have? (Required)',
       choices: [
         'MIT',
         'Unlicense',
@@ -87,24 +86,23 @@ inquirer
         'none'
       ]
     },
+
     // testing for project
     {
       type: 'input',
       name: 'test',
-      message: 'Provide tests for project, and explain how to test',
+      message: 'Provide tests for project, and explain how to test (Required)',
       default: 'npm run test'
     },
 
     // contribution for projects
-
     {
       type: 'input',
       name: 'contribute',
-      message: 'Explain how users can contribute to your project'
+      message: 'Explain how users can contribute to your project (Required)'
     },
 
     // questions about project
-
     {
       type: 'input',
       name: 'email',
@@ -119,19 +117,3 @@ inquirer
       }
     }
   ])
-
-  function init() {
-    return inquirer.prompt(questions);
-};
-
-// Function call to initialize app
-init()
-    .then(data => {
-        return generateMarkdown(data);
-    })
-    .then(generateMarkdown => {
-        return writeToFile('./dist/README.md', generateMarkdown);
-    })
-    .catch(err => {
-        console.log(err);
-    });
