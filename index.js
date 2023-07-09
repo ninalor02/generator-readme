@@ -1,6 +1,9 @@
 //global variables
 const fs = require('fs');
 const inquirer = require('inquirer');
+const path = require("path");
+const generateMarkdown = require("./utils/generatemarkdown");
+
 
 // questions
 const questions = []
@@ -117,3 +120,30 @@ inquirer
       }
     }
   ])
+
+  const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./README.md', fileContent, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: 'File created!'
+            });
+        });
+    });
+};
+
+function init () {
+  inquirer.prompt(questions)
+  .then(function(answer){
+    console.log(answer);
+    var fileContent = generateMarkdown(answer);
+    writeToFile(fileContent)
+  }
+    )};
+
+    init();
+    module.exports = questions;
