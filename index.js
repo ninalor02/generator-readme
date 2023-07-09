@@ -1,15 +1,14 @@
 //global variables
 const fs = require('fs');
 const inquirer = require('inquirer');
-const path = require("path");
-const generateMarkdown = require("./utils/generatemarkdown");
+const generateMarkdown = require("./develop/utils/generatemarkdown");
 
 
 // questions
-const questions = []
+const questions = [
 inquirer
   .prompt([
-    //Github username
+    // name or full name
     {
       type: 'input',
       message: 'Enter your name (Required)?',
@@ -25,7 +24,7 @@ inquirer
       }
     },
 
-    //Github Repository
+   //Github username
     {
       type: 'input',
       message: 'Enter in your github username (Required)?',
@@ -120,17 +119,17 @@ inquirer
       }
     }
   ])
+]
 
   const writeFile = fileContent => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./README.md', fileContent, err => {
+        fs.writeFile('./README.md', data, err => {
             if (err) {
                 reject(err);
                 return;
             }
             resolve({
                 ok: true,
-                message: 'File created!'
             });
         });
     });

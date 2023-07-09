@@ -62,8 +62,8 @@ ${data.contribute}
 
 ## Questions
 
-Questions about this repository? Please contact me at [${data.email}](mailto:${data.email}). 
-View more of my work in GitHub at [@${data.username}](https://github.com/${data.username})
+Questions about this repository? Please contact me at [${data.email}](mailto:${data.email}).  (https://ninalor02.github.io/generator-readme/)
+View more of my work in GitHub at [@${data.username}](https://github.com/${data.username}) (https://github.com/ninalor02)
 `; 
 };
 
