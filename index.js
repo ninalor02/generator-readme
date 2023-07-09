@@ -1,8 +1,7 @@
 //global variables
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generateMarkdown = require("./develop/utils/generatemarkdown");
-
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // questions
 const questions = [
@@ -14,8 +13,8 @@ inquirer
       message: 'Enter your name (Required)?',
       name: 'username',
       default: 'optional for full name',
-      validate: githubInput => {
-        if (githubInput) {
+      validate: name => {
+        if (name) {
           return true;
         } else {
           console.log('please enter your name!');
@@ -29,8 +28,8 @@ inquirer
       type: 'input',
       message: 'Enter in your github username (Required)?',
       name: 'repository',
-      validate: repository => {
-        if (repository) {
+      validate: githubInput => {
+        if (githubInput) {
           return true;
         } else {
           console.log('please enter your github username!');
@@ -66,7 +65,7 @@ inquirer
     {
       type: 'input',
       name: 'usage',
-      message: 'Enter your project instructions and examples (Required)'
+      message: 'Enter your project instructions and examples (Required)',
     },
 
     // license
@@ -94,14 +93,22 @@ inquirer
       type: 'input',
       name: 'test',
       message: 'Provide tests for project, and explain how to test (Required)',
-      default: 'npm run test'
+      default: 'npm run test',
+      validate: test => {
+        if (test) {
+          return true;
+        } else {
+          console.log('please enter command to run test!');
+          return false;
+        }
+      }
     },
 
     // contribution for projects
     {
       type: 'input',
       name: 'contribute',
-      message: 'Explain how users can contribute to your project (Required)'
+      message: 'Please enter the contributors'
     },
 
     // questions about project
@@ -139,6 +146,7 @@ function init () {
   inquirer.prompt(questions)
   .then(function(answer){
     console.log(answer);
+
     var fileContent = generateMarkdown(answer);
     writeToFile(fileContent)
   }
@@ -146,3 +154,5 @@ function init () {
 
     init();
     module.exports = questions;
+
+
