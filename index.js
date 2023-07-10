@@ -59,7 +59,7 @@ const questions = [
     {
         type: 'input',
         name: 'contribution',
-        message: 'Who contributed to this challenge? And can any future contributors contribute to this repo',
+        message: 'Who contributed to this challenge?',
         validate: contributionInput => {
             if (contributionInput) {
                 return true;
