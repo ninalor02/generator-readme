@@ -14,7 +14,7 @@ inquirer
       name: 'username',
       default: 'optional for full name',
       validate: name => {
-        if (name) {
+        if (nameInput) {
           return true;
         } else {
           console.log('please enter your name!');
@@ -43,8 +43,8 @@ inquirer
       type: 'input',
       message: 'What is the title of this project? (Required):',
       name: 'Github',
-      validate: challenge => {
-        if (challenge) {
+      validate: challengeInput => {
+        if (challengeInput) {
           return true;
         } else {
           console.log('please enter the title of this project!');
@@ -58,7 +58,15 @@ inquirer
       type: 'input',
       name: 'installation',
       message: 'What command should be run to install dependencies (Required)?',
-      default: 'npm install'
+      default: 'npm install',
+      validate: commandInput => {
+        if (commandInput) {
+          return true;
+        } else {
+          console.log('please enter the title of this project!');
+          return false;
+        }
+      }
     },
 
     // usage
@@ -66,6 +74,14 @@ inquirer
       type: 'input',
       name: 'usage',
       message: 'Enter your project instructions and examples (Required)',
+      validate: usageInput => {
+        if (usageInput) {
+          return true;
+        } else {
+          console.log('please enter the title of this project!');
+          return false;
+        }
+      }
     },
 
     // license
@@ -94,8 +110,8 @@ inquirer
       name: 'test',
       message: 'Provide tests for project, and explain how to test (Required)',
       default: 'npm run test',
-      validate: test => {
-        if (test) {
+      validate: testInput => {
+        if (testInput) {
           return true;
         } else {
           console.log('please enter command to run test!');
@@ -108,7 +124,15 @@ inquirer
     {
       type: 'input',
       name: 'contribute',
-      message: 'Please enter the contributors'
+      message: 'Please enter the contributors',
+      validate: contributorsInput => {
+        if (contributorsInput) {
+          return true;
+        } else {
+          console.log('please enter the title of this project!');
+          return false;
+        }
+      }
     },
 
     // questions about project
@@ -116,8 +140,8 @@ inquirer
       type: 'input',
       name: 'email',
       message: 'Enter your email address (Required)',
-      validate: email => {
-        if (email) {
+      validate: emailInput => {
+        if (emailInput) {
           return true;
         } else {
           console.log('Please enter your email address!');
@@ -128,31 +152,33 @@ inquirer
   ])
 ]
 
-  const writeFile = fileContent => {
+  const writeToFile = (fileName, data) => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./README.md', data, err => {
+        fs.writeToFile(fileName, data, err => {
             if (err) {
                 reject(err);
                 return;
             }
             resolve({
                 ok: true,
+                message: 'File is created!'
             });
         });
     });
 };
 
 function init () {
-  inquirer.prompt(questions)
-  .then(function(answer){
-    console.log(answer);
-
-    var fileContent = generateMarkdown(answer);
-    writeToFile(fileContent)
-  }
-    )};
-
-    init();
-    module.exports = questions;
+ return inquirer.prompt(questions)
+}
+    init()
+    .then(data => {
+      return generateMarkdown(data);
+    })
+    .then (generateMarkdown => {
+      return writeToFile('./utils/README.md,generateMarkdown');
+    })
+    .catch(err => {
+      console.log(err);
+    })
 
 
