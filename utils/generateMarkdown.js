@@ -1,5 +1,3 @@
-// version 1
-
 const renderLicenseBadge = license => {
     if (license === 'Apache License 2.0') {
         return 'https://img.shields.io/badge/License-Apache%202.0-blue.svg';
@@ -23,6 +21,9 @@ const renderLicenseBadge = license => {
         return '';
     }
 };
+
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
 const renderLicenseLink = license => {
     if (license === 'Apache License 2.0') {
         return 'https://opensource.org/licenses/Apache-2.0';
@@ -110,66 +111,3 @@ Contact me at: <br/>
 <${data.email}>
 `;
 }
-
-
-
-// version 2
-
-
-// const generateMarkdown = data => {
-//     data.licenseBadge = licenseBadgeLinks[data.license];
-
-//     return `
-// # ${data.title}
-// ${data.licenseBadge}
-// [![Badge for GitHub](https://img.shields.io/github/languages/top/${data.username}/${data.repository}?style=flat&logo=appveyor)](https://${data.username}.github.io/${data.repository})
-
-
-// ## Description
-// ${data.description}
-
-// ## Table of Contents
-
-// * [Installation](#installation)
-// * [Usage](#usage)
-// * [License](#license)
-// * [Tests](#tests)
-// * [Website](#website)
-// * [Contribution](#contribution)
-// * [Questions](#questions)
-    
-// ## Installation
-
-// ${data.installation}
-
-// ## Usage
-
-// ${data.usage}
-
-// ## License
-
-// This repository is licensed under the ${data.license} license.
-
-// ## Tests
-
-// To run tests, run the following:
-// \
-// ${data.test}
-// \
-
-// ## Website
-
-// https://${data.username}.github.io/${data.repository}
-
-// ## Contribution
-
-// ${data.contribute}
-
-// ## Questions
-
-// Questions about this repository? Please contact me at [${data.email}](mailto:${data.email}).  (https://ninalor02.github.io/generator-readme/)
-// View more of my work in GitHub at [@${data.username}](https://github.com/${data.username}) (https://github.com/ninalor02)
-// `; 
-// };
-
-// module.exports = generateMarkdown;
